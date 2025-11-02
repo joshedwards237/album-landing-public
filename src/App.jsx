@@ -58,7 +58,7 @@ export default function App() {
         {/* Replace src with your album artwork or hero image */}
         <img
           ref={imgRef}
-          src="/hero-image.JPEG"
+          src="/hero-image-2.png"
           alt="Good Folk Album Artwork"
           className="hero-image"
         />
