@@ -5,12 +5,16 @@
       "WebSearch",
       "Bash(git init:*)",
       "Bash(git add:*)",
+<<<<<<< HEAD
       "Bash(git commit:*)",
       "Bash(git branch:*)",
       "Bash(gh repo create:*)",
       "Bash(git remote add:*)",
       "Bash(git push:*)",
       "Bash(vercel:*)"
+=======
+      "Bash(git commit:*)"
+>>>>>>> f4afad6f5f253ad46f1c7ab7b699baacce967e46
     ],
     "deny": [],
     "ask": []
