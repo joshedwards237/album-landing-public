@@ -1,7 +1,5 @@
-import "@fontsource/great-vibes";
-import "@fontsource/crimson-text/400.css";
-import "@fontsource/crimson-text/600.css";
-import "@fontsource/crimson-text/400-italic.css";
+import "@fontsource/caveat/400.css";
+import "@fontsource/caveat/700.css";
 import "./index.css";
 import Countdown from "./components/Countdown";
 import { useEffect, useRef } from "react";
@@ -53,7 +51,6 @@ export default function App() {
     <>
       <div className="snow-overlay" aria-hidden="true" />
       <main className="page">
-        <h1 className="title">Good Folk</h1>
 
         {/* Replace src with your album artwork or hero image */}
         <img
@@ -61,10 +58,12 @@ export default function App() {
           src="/hero-image-2.png"
           alt="Good Folk Album Artwork"
           className="hero-image"
+          style={{ maxWidth: "500px" }}
         />
 
-        <p className="tagline">A Christmas album by Josh Edwards</p>
-        <Countdown />
+        <section className="countdown-card">
+          <Countdown />
+        </section>
 
         <div className="links">
           <a href="https://open.spotify.com" className="link-button link-button-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>

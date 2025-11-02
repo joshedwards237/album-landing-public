@@ -22,7 +22,8 @@ body {
   /* Dark, image-derived background with gentle radial falloff */
   background-color: rgb(var(--album-bg-rgb));
   background-image: radial-gradient(1200px 800px at 50% 20%, rgba(var(--album-bg-rgb), 0.72) 0%, rgba(var(--album-bg-rgb), 1) 70%);
-  font-family: "Crimson Text", serif;
+  font-family: "Caveat", cursive;
+  font-weight: 400;
   color: var(--text);
   position: relative;
 }
@@ -41,10 +42,16 @@ body {
 }
 
 h1, .title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
   font-size: 4rem;
   color: var(--accent-red);
   margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: "Caveat", cursive;
+  font-weight: 400;
 }
 
 .hero-image {
@@ -60,16 +67,220 @@ h1, .title {
 }
 
 .hero-image:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  transform: scale(1.01);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
-.countdown .iframe {
+.countdown-card {
   width: 100%;
-  max-width: 400px;
-  height: 200px;
-  border-radius: 8px;
-  background: white;
+  max-width: 520px;
+  padding: 2rem 2.25rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.countdown__title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--text );
+  letter-spacing: 0.04em;
+}
+
+.countdown__grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 98px;
+}
+
+.countdown__value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 98px;
+  height: 112px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(233, 218, 187, 0.92) 0%, rgba(214, 191, 150, 0.98) 100%);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(140, 110, 72, 0.32);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center top;
+}
+
+.countdown__value-single {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1f1306;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  line-height: 1;
+  backface-visibility: hidden;
+}
+
+.countdown__label {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.countdown__value--changed {
+  animation: countdown-flip 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes countdown-flip {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: rotateX(18deg);
+    opacity: 1;
+  }
+  70% {
+    transform: rotateX(-4deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.pre-save {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.pre-save__toggle {
+  padding: 0.85rem 2.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 29, 29, 0.35);
+  background: linear-gradient(180deg, rgba(241, 224, 194, 0.95) 0%, rgba(220, 191, 148, 0.98) 100%);
+  color: #1f1306;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pre-save__toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.pre-save__toggle:focus-visible {
+  outline: 3px solid rgba(29, 107, 58, 0.6);
+  outline-offset: 2px;
+}
+
+.pre-save__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem 2rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(243, 230, 205, 0.95) 0%, rgba(223, 202, 169, 0.98) 100%);
+  border: 1px solid rgba(128, 96, 60, 0.28);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.25);
+}
+
+.pre-save__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.pre-save__field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #331f0a;
+  letter-spacing: 0.03em;
+}
+
+.pre-save__field input {
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(63, 45, 22, 0.3);
+  background: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  color: #1a1206;
+}
+
+.pre-save__field input:focus-visible {
+  outline: 2px solid rgba(29, 107, 58, 0.45);
+  outline-offset: 2px;
+}
+
+.pre-save__submit {
+  align-self: center;
+  padding: 0.85rem 2.4rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(180deg, rgba(29, 107, 58, 0.9) 0%, rgba(29, 107, 58, 1) 100%);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pre-save__submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(29, 107, 58, 0.35);
+}
+
+.pre-save__submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.pre-save__status {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.pre-save__status--success {
+  color: rgba(29, 107, 58, 0.95);
+}
+
+.pre-save__status--error {
+  color: #b41d1d;
 }
 
 .tagline {
@@ -204,6 +415,20 @@ h1, .title {
   .title {
     font-size: 3rem;
   }
+
+  .countdown-card {
+    padding: 1.75rem;
+  }
+
+  .countdown__value {
+    min-width: 88px;
+    height: 100px;
+  }
+
+  .countdown__value-top,
+  .countdown__value-bottom {
+    font-size: 2.4rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -213,6 +438,28 @@ h1, .title {
 
   .hero-image {
     max-width: 280px;
+  }
+
+  .countdown-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .countdown__grid {
+    gap: 0.75rem;
+  }
+
+  .countdown__value {
+    min-width: 76px;
+    height: 92px;
+  }
+
+  .countdown__value-top,
+  .countdown__value-bottom {
+    font-size: 2rem;
+  }
+
+  .countdown__label {
+    font-size: 1.05rem;
   }
 
   .countdown {
