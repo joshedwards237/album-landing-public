@@ -66,8 +66,8 @@ export default function App() {
         </section>
 
         <div className="links">
-          <a href="https://open.spotify.com" className="link-button link-button-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a href="https://music.apple.com" className="link-button link-button-apple" target="_blank" rel="noopener noreferrer">Apple Music</a>
+          <a href="https://open.spotify.com/artist/3YzWwOOmhQeAueKgmrKewS?si=cP9lODV0Qo6upaQrURz60A" className="link-button link-button-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://music.apple.com/us/artist/josh-edwards/1851376122" className="link-button link-button-apple" target="_blank" rel="noopener noreferrer">Apple Music</a>
           <a href="https://www.instagram.com/joshedwardsofficial/" target="_blank" rel="noopener noreferrer" className="link-button link-button-instagram">Instagram</a>
         </div>
       </main>
