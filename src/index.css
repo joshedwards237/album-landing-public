@@ -90,6 +90,14 @@ h2 {
   align-items: center;
 }
 
+.countdown__release-date {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.03em;
+}
+
 .countdown__title {
   margin: 0;
   font-size: 1.75rem;
@@ -248,6 +256,33 @@ h2 {
   100% { background-position: -8px 840px, 12px 760px, -6px 900px; }
 }
 
+.presave-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.presave-button {
+  padding: 1rem 2.5rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 2px solid rgba(214, 191, 150, 0.8);
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(214, 191, 150, 0.2);
+}
+
+.presave-button:hover {
+  background: #2a2a2a;
+  border-color: rgba(233, 218, 187, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(233, 218, 187, 0.4);
+}
+
 .links {
   display: flex;
   gap: 1rem;
@@ -357,6 +392,15 @@ h2 {
   .countdown {
     max-width: 320px;
     width: 100%;
+  }
+
+  .countdown__release-date {
+    font-size: 1.25rem;
+  }
+
+  .presave-button {
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
   }
 
   .tagline {

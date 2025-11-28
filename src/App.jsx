@@ -65,6 +65,17 @@ export default function App() {
           <Countdown />
         </section>
 
+        <section className="presave-section">
+          <a 
+            href="https://distrokid.com/hyperfollow/joshedwards2/good-folk" 
+            className="presave-button"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Pre-Save Album
+          </a>
+        </section>
+
         <div className="links">
           <a href="https://open.spotify.com/artist/3YzWwOOmhQeAueKgmrKewS?si=cP9lODV0Qo6upaQrURz60A" className="link-button link-button-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
           <a href="https://music.apple.com/us/artist/josh-edwards/1851376122" className="link-button link-button-apple" target="_blank" rel="noopener noreferrer">Apple Music</a>

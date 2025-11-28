@@ -70,9 +70,18 @@ const Countdown = () => {
     [timeLeft]
   );
 
+  const releaseDate = useMemo(() => {
+    const date = new Date("2025-12-01T19:30:00");
+    return date.toLocaleDateString("en-US", { 
+      month: "long", 
+      day: "numeric", 
+      year: "numeric" 
+    });
+  }, []);
+
   return (
     <div className="countdown" role="timer" aria-live="polite">
-      <h2 className="countdown__title">Days until release:</h2>
+      <h2 className="countdown__title">Releases on {releaseDate}:</h2>
       <div className="countdown__grid">
         {UNITS.map(({ key, label }) => {
           const display = formattedValues[key];
