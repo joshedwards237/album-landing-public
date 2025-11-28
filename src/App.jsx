@@ -2,10 +2,15 @@ import "@fontsource/caveat/400.css";
 import "@fontsource/caveat/700.css";
 import "./index.css";
 import Countdown from "./components/Countdown";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function App() {
   const imgRef = useRef(null);
+  const [isReleased, setIsReleased] = useState(() => {
+    const countdownDate = new Date("2025-12-01T19:30:00").getTime();
+    return Date.now() >= countdownDate;
+  });
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
     const img = imgRef.current;
@@ -47,12 +52,41 @@ export default function App() {
     return () => img.removeEventListener("load", computeAverage);
   }, []);
 
+  const handleCountdownComplete = () => {
+    setShowAnimation(true);
+    setTimeout(() => {
+      setIsReleased(true);
+      setShowAnimation(false);
+    }, 3000);
+  };
+
+  if (isReleased) {
+    return (
+      <>
+        <div className="snow-overlay" aria-hidden="true" />
+        <main className="page">
+          <img
+            ref={imgRef}
+            src="/hero-image-2.png"
+            alt="Good Folk Album Artwork"
+            className="hero-image"
+            style={{ maxWidth: "500px" }}
+          />
+          <div className="links">
+            <a href="https://open.spotify.com/artist/3YzWwOOmhQeAueKgmrKewS?si=cP9lODV0Qo6upaQrURz60A" className="link-button link-button-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
+            <a href="https://music.apple.com/us/artist/josh-edwards/1851376122" className="link-button link-button-apple" target="_blank" rel="noopener noreferrer">Apple Music</a>
+            <a href="https://www.instagram.com/joshedwardsofficial/" target="_blank" rel="noopener noreferrer" className="link-button link-button-instagram">Instagram</a>
+          </div>
+          <h1 className="released-title">Album Released! Stream it on all major platforms!</h1>
+        </main>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="snow-overlay" aria-hidden="true" />
       <main className="page">
-
-        {/* Replace src with your album artwork or hero image */}
         <img
           ref={imgRef}
           src="/hero-image-2.png"
@@ -61,11 +95,11 @@ export default function App() {
           style={{ maxWidth: "500px" }}
         />
 
-        <section className="countdown-card">
-          <Countdown />
+        <section className={`countdown-card ${showAnimation ? 'countdown-card--exiting' : ''}`}>
+          <Countdown onComplete={handleCountdownComplete} />
         </section>
 
-        <section className="presave-section">
+        <section className={`presave-section ${showAnimation ? 'presave-section--exiting' : ''}`}>
           <a 
             href="https://distrokid.com/hyperfollow/joshedwards2/good-folk" 
             className="presave-button"

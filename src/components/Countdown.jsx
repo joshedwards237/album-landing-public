@@ -14,9 +14,10 @@ const createZeroTime = () => ({
   seconds: 0,
 });
 
-const Countdown = () => {
+const Countdown = ({ onComplete }) => {
   const [timeLeft, setTimeLeft] = useState(createZeroTime);
   const [prevTimeLeft, setPrevTimeLeft] = useState(createZeroTime);
+  const [hasCompleted, setHasCompleted] = useState(false);
 
   useEffect(() => {
     const countdownDate = new Date("2025-12-01T19:30:00").getTime();
@@ -34,6 +35,12 @@ const Countdown = () => {
         });
         if (intervalId) {
           clearInterval(intervalId);
+        }
+        if (!hasCompleted) {
+          setHasCompleted(true);
+          if (onComplete) {
+            setTimeout(() => onComplete(), 2000);
+          }
         }
         return;
       }
@@ -58,7 +65,7 @@ const Countdown = () => {
         clearInterval(intervalId);
       }
     };
-  }, []);
+  }, [hasCompleted, onComplete]);
 
   const formattedValues = useMemo(
     () => ({
