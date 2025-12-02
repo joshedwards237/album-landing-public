@@ -20,7 +20,7 @@ const Countdown = ({ onComplete }) => {
   const [hasCompleted, setHasCompleted] = useState(false);
 
   useEffect(() => {
-    const countdownDate = new Date("2025-12-01T19:30:00").getTime();
+    const countdownDate = new Date("2025-12-01T18:30:00").getTime();
 
     let intervalId = 0;
 
@@ -78,7 +78,7 @@ const Countdown = ({ onComplete }) => {
   );
 
   const releaseDate = useMemo(() => {
-    const date = new Date("2025-12-01T19:30:00");
+    const date = new Date("2025-12-01T18:30:00");
     return date.toLocaleDateString("en-US", { 
       month: "long", 
       day: "numeric", 

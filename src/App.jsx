@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 export default function App() {
   const imgRef = useRef(null);
   const [isReleased, setIsReleased] = useState(() => {
-    const countdownDate = new Date("2025-12-01T19:30:00").getTime();
+    const countdownDate = new Date("2025-12-01T18:30:00").getTime();
     return Date.now() >= countdownDate;
   });
   const [showAnimation, setShowAnimation] = useState(false);
